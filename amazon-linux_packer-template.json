@@ -12,15 +12,11 @@
         "ami_name": "{{user `aws_ami_name`}}",
         "ami_description": "Customized Amazon Linux",
         "associate_public_ip_address": "true",
-        "source_ami_filter": {
-            "filters": {
-                "virtualization-type": "hvm",
-                "name": "amzn-ami*-ebs",
-                "root-device-type": "ebs"
-            },
-            "owners": ["137112412989", "591542846629", "801119661308", "102837901569", "013907871322", "206029621532", "286198878708", "443319210888"],
-            "most_recent": true
-        }
+        "source_ami": "{{user `source_ami`}}",
+        "ami_groups": "{{user `ami_groups`}}",
+        "communicator": "ssh",
+        "ssh_file_transfer_method": "sftp", 
+        "ssh_pty": true
     }],
 
     "provisioners": [
